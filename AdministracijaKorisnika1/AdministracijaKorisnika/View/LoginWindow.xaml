@@ -1,0 +1,28 @@
+﻿<Window x:Class="AdministracijaKorisnika.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login" Height="200" Width="300">
+    <Grid>
+        <StackPanel>
+            <Label Content="Username" Margin="113,0,107,0"/>
+            <!-- Polje za korisničko ime -->
+            <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="10" 
+                     Width="200" 
+                     ToolTip="Enter your username" />
+            <Label Content="Password" Margin="113,0,119,0"/>
+
+            <!-- Polje za unos lozinke -->
+            <PasswordBox x:Name="UserPasswordBox" 
+             Width="200" 
+             Margin="10" 
+             PasswordChanged="PasswordBox_PasswordChanged" 
+             ToolTip="Enter your password" />
+
+            <!-- Dugme za prijavu -->
+            <Button Content="Login" 
+                    Command="{Binding LoginCommand}" 
+                    Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

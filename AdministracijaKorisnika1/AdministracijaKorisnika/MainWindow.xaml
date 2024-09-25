@@ -1,0 +1,26 @@
+﻿<Window x:Class="AdministracijaKorisnika.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="User Administration" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox ItemsSource="{Binding Users}" 
+                 SelectedItem="{Binding SelectedUser}" 
+                 DisplayMemberPath="UserName" 
+                 Grid.Column="0" />
+
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBox Text="{Binding SelectedUser.UserName, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" />
+            <TextBox Text="{Binding SelectedUser.UserPass, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="5" />
+            <CheckBox IsChecked="{Binding SelectedUser.IsAdmin}" Content="Is Admin" Margin="5" />
+            <Button Content="Save" Command="{Binding SaveCommand}" Margin="5" />
+            <Button Content="Add New User" Command="{Binding AddCommand}" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>
