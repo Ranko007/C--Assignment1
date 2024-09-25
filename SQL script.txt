@@ -1,0 +1,18 @@
+CREATE DATABASE ADMIN1;
+GO
+
+USE ADMIN1;
+GO
+
+CREATE TABLE Users (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    UserName NVARCHAR(50) NOT NULL,
+    UserPass NVARCHAR(50) NOT NULL,
+    IsAdmin BIT NOT NULL
+);
+GO
+
+-- Primer podataka za unos u tabelu Users
+INSERT INTO Users (UserName, UserPass, IsAdmin)
+VALUES ('admin', 'admin123', 1), ('user1', 'password1', 0), ('user2', 'password2', 0);
+GO
